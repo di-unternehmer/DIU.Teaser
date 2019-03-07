@@ -1,0 +1,144 @@
+prototype(DIU.Teaser:Component.Molecule.Teaser) < prototype(Neos.Fusion:Component) {
+    #
+    # Styleguide annotation
+    # if this annotation is present (even when empty)
+    # the prototype is rendered in the styleguide
+    #
+    @styleguide {
+
+        #
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Molecule Teaser'
+
+        #
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'Molecule Article Teaser'
+
+        @propTypes {
+            imageUrlDefault = ${PropTypes.string.isRequired}
+            imageUrlSmall = ${PropTypes.string}
+            imageUrlMedium = ${PropTypes.string}
+            imageUrlLarge = ${PropTypes.string}
+
+            category = ${PropTypes.string.isRequired}
+            title = ${PropTypes.string.isRequired}
+            description = ${PropTypes.string}
+            link = ${PropTypes.string.isRequired}
+            altImageText = ${PropTypes.string}
+            notInlineEditable = ${PropTypes.boolean}
+
+            classNames = ${PropTypes.string}
+        }
+
+        #
+        # Fusion-props to override during the styleguide rendering
+        # Optional: By default empty.
+        #
+        props {
+            imageUrlDefault = 'https://dummyimage.com/1140x640/000/fff'
+            imageUrlSmall = 'https://dummyimage.com/720x250/000/fff'
+            imageUrlMedium = 'https://dummyimage.com/940x330/000/fff'
+            imageUrlLarge = 'https://dummyimage.com/1140x400/000/fff'
+
+            altImageText = ''
+            category = 'Business Management'
+            title = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg beeinflussen'
+            description = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt, es herrschen flache Hierarchien. In vielen großen Unternehmen ist es dagegen umgekehrt: Hier berichtet der Abteilungsleiter an den Manager...'
+            link = '#'
+            notInlineEditable = false
+
+            inBackend = ${documentNode.context.inBackend}
+            classNames = ''
+        }
+
+        #
+        # Alternate prop sets that can overload the default props
+        # Optional: By default empty.
+        #
+        propSets {
+            'Small Teaser' {
+                classNames = 'small'
+                description = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt...'
+                imageUrlDefault = 'https://dummyimage.com/410x220/000/fff'
+                imageUrlSmall = ''
+                imageUrlMedium = ''
+                imageUrlLarge = ''
+            }
+            'Image Right Teaser' {
+                classNames = 'image-right'
+                description = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt...'
+                imageUrlDefault = 'https://dummyimage.com/576x302/000/fff'
+                imageUrlSmall = ''
+                imageUrlMedium = ''
+                imageUrlLarge = ''
+            }
+            'Image Left Teaser' {
+                classNames = 'image-left'
+                description = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt...'
+                imageUrlDefault = 'https://dummyimage.com/576x302/000/fff'
+                imageUrlSmall = ''
+                imageUrlMedium = ''
+                imageUrlLarge = ''
+            }
+            'Without Description' {
+                classNames = 'no-description'
+                imageUrlDefault = 'https://dummyimage.com/360x200/000/fff'
+                imageUrlSmall = ''
+                imageUrlMedium = ''
+                imageUrlLarge = ''
+                description = false
+            }
+        }
+    }
+
+    imageUrlDefault = ''
+    imageUrlMedium = ''
+    imageUrlSmall = ''
+    imageUrlLarge = ''
+
+    altImageText = ''
+    category = ''
+    title = ''
+    description = ''
+    link = '#'
+    classNames = ''
+    inBackend = ${documentNode.context.inBackend}
+    notInlineEditable = false
+
+    renderer = afx`
+        <Neos.Fusion:Tag tagName={props.inBackend ? 'span' : 'a'} attributes.href={props.link}  attributes.class={'molecule-teaser ' + props.classNames + (props.notInlineEditable ? ' teaser__notInlineEditable' : '')} >
+            <article vocab="http://schema.org/" typeof="Article">
+                <DIU.Teaser:Component.Atom.Picture.Default @if.notEmpty={props.imageUrlDefault}
+                            imageUrlSmall={props.imageUrlSmall}
+                            SmallMaximumWidth="720"
+                            imageUrlMedium={props.imageUrlMedium}
+                            MediumMaximumWidth="940"
+                            imageUrlLarge={props.imageUrlLarge}
+                            LargeMaximumWidth="1140"
+                            imageUrlDefault={props.imageUrlDefault}
+                            DefaultMaximumWidth="1140"
+                            classNames="image"
+                            altText={props.altImageText}
+                />
+                <svg class="placeholder-image article-image" @if.inBackendAndNoArticleImage={props.inBackend == true && props.imageUrlDefault == ''} xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 480 383.5" enable-background="new 0 0 480 383.5" xml:space="preserve"><polygon fill="#A3A3A3" points="45,337.295 45,284.114 133.636,195.477 177.955,239.795 319.772,97.977 435,213.204 435,337.295 "/><path fill="#A3A3A3" d="M45 106.841c0-14.773 5.17-27.329 15.511-37.67C70.852 58.83 83.408 53.66 98.181 53.66s27.33 5.17 37.67 15.511c10.341 10.341 15.512 22.897 15.512 37.67s-5.17 27.33-15.512 37.67c-10.341 10.341-22.897 15.511-37.67 15.511s-27.329-5.17-37.67-15.511C50.17 134.17 45 121.614 45 106.841z"/><path fill="#A3A3A3" d="M476 4.136v375.5H4V4.136H476M480 0.136H0v383.5h480V0.136L480 0.136z"/></svg>
+                <div class="body">
+                    <header class="header">
+                        <p class="category">{props.category}</p>
+                        <DIU.Teaser:Component.Atom.Headline.H2 @key="headline" classNames="headline" content={props.title} />
+                    </header>
+
+                    <div class="description" property="articleBody">
+                        <p @if.has={props.description}>{props.description}</p>
+                        <span class="pseudo-link">{Translation.translate('continue.reading','Weiterlesen',[],null,'DIU.Teaser')}</span>
+                    </div>
+                </div>
+            </article>
+            <div @if.isNotInlineEditable={props.notInlineEditable} class="teaser__notInlineEditableOverlay"></div>
+        </Neos.Fusion:Tag>
+    `
+
+}

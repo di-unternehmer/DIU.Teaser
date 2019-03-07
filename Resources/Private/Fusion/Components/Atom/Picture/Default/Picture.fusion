@@ -1,0 +1,75 @@
+prototype(DIU.Teaser:Component.Atom.Picture.Default) < prototype(Neos.Fusion:Component) {
+    #
+    # Styleguide annotation
+    # if this annotation is present (even when empty)
+    # the prototype is rendered in the styleguide
+    #
+    @styleguide {
+
+        #
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Atom Responsive Picture'
+
+        #
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'A responsive picture prototype.'
+
+        @propTypes {
+            imageUrlDefault = ${PropTypes.string.isRequired}
+            imageUrlSmall = ${PropTypes.string}
+            imageUrlMedium = ${PropTypes.string}
+            imageUrlLarge = ${PropTypes.string}
+            classNames = ${PropTypes.string}
+            caption = ${PropTypes.string}
+            hasCaption = ${PropTypes.boolean}
+        }
+
+        #
+        # Fusion-props to override during the styleguide rendering
+        # Optional: By default empty.
+        #
+        props {
+            imageUrlDefault = 'https://dummyimage.com/1140x640/000/fff'
+            imageUrlSmall = 'https://dummyimage.com/720x250/000/fff'
+            imageUrlMedium = 'https://dummyimage.com/940x330/000/fff'
+            imageUrlLarge = 'https://dummyimage.com/1140x400/000/fff'
+
+            hasCaption = false
+            caption = '©photographer'
+            altText = ''
+
+            classNames = ''
+        }
+    }
+
+    imageUrlDefault = ''
+    imageUrlSmall = ''
+    imageUrlMedium = ''
+    imageUrlLarge = ''
+
+    hasCaption = false
+    caption = ''
+    altText = ''
+
+    classNames = ''
+
+    #
+    # The code afx`...` is converted to the fusion code below at parse time.
+    # Attention: Currently there is no way to escape closing-backticks inside the Expression.
+    #
+    renderer = afx`
+        <figure class="atom-picture-default-figure">
+            <picture class={'atom-picture-default ' + props.classNames}>
+                <source @if.has={props.imageUrlSmall} media="(max-width: 767px)" srcset={props.imageUrlSmall} />
+                <source @if.has={props.imageUrlMedium} media="(min-width: 768px) and (max-width: 1199px)" srcset={props.imageUrlMedium} />
+                <source @if.has={props.imageUrlLarge} media="(min-width: 1200px)" srcset={props.imageUrlLarge} />
+                <img src={props.imageUrlDefault} alt={props.altText} property="image" />
+            </picture>
+            <figcaption @if.hasCaption={props.hasCaption}>{props.caption}</figcaption>
+        </figure>
+    `
+}

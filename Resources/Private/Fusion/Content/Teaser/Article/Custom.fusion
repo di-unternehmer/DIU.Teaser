@@ -1,0 +1,70 @@
+prototype(DIU.Teaser:Content.Teaser.Article.Custom) < prototype(Neos.Neos:ContentComponent) {
+
+    renderer = DIU.Teaser:Component.Molecule.Teaser {
+
+        imageUrlDefault = Neos.Neos:ImageUri {
+            asset = ${q(node).property('teaserBigImage') ? q(node).property('teaserBigImage') : q(node).property('image')}
+            width = 1140
+            height = 400
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlSmall = Neos.Neos:ImageUri {
+            asset = ${q(node).property('teaserBigImage') ? q(node).property('teaserBigImage') : q(node).property('image')}
+            width = 720
+            height = 253
+            maximumWidth = 720
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlMedium = Neos.Neos:ImageUri {
+            asset = ${q(node).property('teaserBigImage') ? q(node).property('teaserBigImage') : q(node).property('image')}
+            width = 940
+            height = 330
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlLarge = Neos.Neos:ImageUri {
+            asset = ${q(node).property('teaserBigImage') ? q(node).property('teaserBigImage') : q(node).property('image')}
+            width = 1140
+            height = 400
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        altImageText = ${q(node).property('alternativeText') ? q(node).property('alternativeText') : q(node).property('title')}
+
+        category = Neos.Neos:Editable {
+            property = 'preHeadline'
+            block = true
+        }
+        title = Neos.Neos:Editable {
+            property = 'title'
+            block = true
+        }
+        description = Neos.Neos:Editable {
+            property = 'introduction'
+            block = true
+        }
+        link = ${q(node).property('link')}
+        link.@process.convertUris = Neos.Neos:ConvertUris
+        link.@if.hideLinkInBackend = ${documentNode.context.inBackend == false}
+    }
+
+    @cache {
+        mode = 'cached'
+
+        entryIdentifier {
+            node = ${node}
+        }
+
+        # 2) Flush cache on changes on the node itself and on a change of any article
+        entryTags {
+            node = ${'Node_' + node.identifier}
+            article = ${'NodeType_DIU.Teaser:Article'}
+        }
+    }
+}

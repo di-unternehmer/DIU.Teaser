@@ -1,0 +1,15 @@
+'DIU.Teaser:Content.Teaser.Article.Small':
+  superTypes:
+    'DIU.Teaser:Content.Teaser.Article.Mixins': true
+  ui:
+    label: i18n
+    position: 300
+  properties:
+    showIntroduction:
+      type: boolean
+      reloadIfChanged: true
+      defaultValue: true
+      ui:
+        label: i18n
+        inspector:
+          group: 'general'

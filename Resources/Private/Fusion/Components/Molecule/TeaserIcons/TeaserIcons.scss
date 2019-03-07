@@ -1,0 +1,61 @@
+.molecule-teaserIcons {
+    padding: 20px 15px;
+    overflow: hidden;
+    background: #fff;
+    border-radius: 2px;
+    margin-bottom: 30px;
+}
+
+.molecule-teaserIcons ul {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+.molecule-teaserIcons ul li img {
+    display: inline-flex;
+}
+
+.molecule-teaserIcons ul li a:hover {
+    color: #00193c;
+}
+
+.molecule-teaserIcons ul li a .content {
+    display: flex;
+}
+
+.molecule-teaserIcons ul li a .text {
+    color: #00193c;
+    display: inline-flex;
+    margin: 0 0 10px 28px;
+
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+ }
+
+@media (min-width: 768px) {
+    .molecule-teaserIcons ul li a .text {
+        margin: 0 0 10px 5px;
+    }
+}
+
+@media (min-width: 992px) {
+    .molecule-teaserIcons ul li a .text {
+        margin: 0 0 10px 5px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .molecule-teaserIcons ul li a .text {
+        margin: 0 0 10px 28px;
+    }
+}
+
+.molecule-teaserIcons ul li {
+    display: block;
+    padding: 0;
+    margin: 0;
+}
+

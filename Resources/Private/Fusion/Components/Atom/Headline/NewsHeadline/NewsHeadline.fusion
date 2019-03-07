@@ -1,0 +1,34 @@
+prototype(DIU.Teaser:Component.Atom.Headline.NewsHeadline) < prototype(Neos.Fusion:Component) {
+
+	@styleguide {
+
+		#
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'News Fixed Headline H1'
+
+		#
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'News Fixed Headline H1'
+		@propTypes {
+			content = ${PropTypes.string.isRequired}
+			classNames = ${PropTypes.string}
+		}
+		props {
+			content = 'News'
+			classNames = ''
+		}
+	}
+
+	content = ''
+	classNames = ''
+
+	renderer = afx`
+		<h1 class={'atom-newsHeadline ' + props.classNames}>
+			{props.content}
+		</h1>
+	`
+}

@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="DIU.Teaser" source-language="en" target-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label">
+                <source>Events/Lexicon/... Teaser</source>
+                <target>Messekalender/Lexicon... Teaser</target>
+            </trans-unit>
+            <trans-unit id="groups.link1">
+                <source>Eventcalendar</source>
+                <target>Messekalender</target>
+            </trans-unit>
+            <trans-unit id="properties.linktitle1">
+                <source>Link Title</source>
+                <target>Link Beschriftung</target>
+            </trans-unit>
+            <trans-unit id="properties.link1">
+                <source>Link to Event Calendar</source>
+                <target>Link zum Messekalender</target>
+            </trans-unit>
+            <trans-unit id="groups.link2">
+                <source>Lexicon</source>
+                <target>Lexikon</target>
+            </trans-unit>
+            <trans-unit id="properties.linktitle2">
+                <source>Link Title</source>
+                <target>Link Beschriftung</target>
+            </trans-unit>
+            <trans-unit id="properties.link2">
+                <source>Link to Lexicon</source>
+                <target>Link zum Lexicon</target>
+            </trans-unit>
+            <trans-unit id="groups.link3">
+                <source>Calculator</source>
+                <target>Rechner</target>
+            </trans-unit>
+            <trans-unit id="properties.linktitle3">
+                <source>Link Title</source>
+                <target>Link Beschriftung</target>
+            </trans-unit>
+            <trans-unit id="properties.link3">
+                <source>Link to Calculator</source>
+                <target>Link zur Rechnerübersicht</target>
+            </trans-unit>
+            <trans-unit id="groups.link4">
+                <source>WhitePaper</source>
+                <target>WhitePaper</target>
+            </trans-unit>
+            <trans-unit id="properties.linktitle4">
+                <source>Link Title</source>
+                <target>Link Beschriftung</target>
+            </trans-unit>
+            <trans-unit id="properties.link4">
+                <source>Link to WhitePaper</source>
+                <target>Link zur WhitePaper-Übersicht</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

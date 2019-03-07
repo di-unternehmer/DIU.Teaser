@@ -1,0 +1,75 @@
+'DIU.Teaser:Content.Teaser.Article.Mixins':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Content': true
+  ui:
+    group: 'teaser'
+    position: 107
+    icon: 'icon-address-card'
+    inspector:
+      groups:
+        general:
+          label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:groups.general'
+          icon: 'icon-settings'
+          tab: 'default'
+          position: 10
+  properties:
+    topic:
+      type: reference
+      ui:
+        label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.topic'
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editorOptions:
+            placeholder: 'Bitte auswählen'
+            nodeTypes: ['DIU.Teaser:Topic']
+    article:
+      type: reference
+      ui:
+        label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.article'
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editorOptions:
+            placeholder: 'Bitte auswählen'
+            nodeTypes: ['DIU.Teaser:Article']
+    sortBy:
+      type: string
+      defaultValue: '_creationDateTime'
+      ui:
+        label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.sortBy'
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              'publishingDate':
+                label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.sortBy.selectBoxEditor.values.publishingDate'
+              '_creationDateTime':
+                label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.sortBy.selectBoxEditor.values.latest'
+              'title':
+                label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.sortBy.selectBoxEditor.values.alphabetical'
+    sortDirection:
+      type: string
+      defaultValue: desc
+      ui:
+        label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.sortDirection'
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              asc:
+                label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.sortDirection.selectBoxEditor.values.asc'
+              desc:
+                label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.sortDirection.selectBoxEditor.values.desc'
+    index:
+      type: integer
+      ui:
+        label: 'DIU.Teaser:NodeTypes.Content.Teaser.Article.Main:properties.index'
+        reloadIfChanged: true
+        inspector:
+          group: 'general'

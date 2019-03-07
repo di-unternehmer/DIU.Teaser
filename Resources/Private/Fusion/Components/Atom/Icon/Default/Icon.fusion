@@ -1,0 +1,40 @@
+prototype(DIU.Teaser:Component.Atom.Icon.Default) < prototype(Neos.Fusion:Component) {
+
+	@styleguide {
+
+		#
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Atom Icon Default'
+
+		#
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'Icon Default Prototype.'
+		@propTypes {
+			iconLink = ${PropTypes.string.isRequired}
+			title = ${PropTypes.string}
+			classNames = ${PropTypes.string}
+			alt = ${PropTypes.string.isRequired}
+		}
+		props {
+			title="Icon Image"
+			iconLink = Neos.Fusion:ResourceUri {
+				path = "resource://DIU.Teaser/Public/Images/lexicon.svg"
+			}
+			classNames = ''
+			altText = 'icon'
+		}
+	}
+
+	title = ''
+	iconLink = ''
+	classNames = ''
+	altText = ''
+
+	renderer = afx`
+		<img src={props.iconLink} title={props.title} alt={props.altText} class={'atom-icon-default ' + props.classNames} />
+	`
+}

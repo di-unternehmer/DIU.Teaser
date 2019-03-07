@@ -1,0 +1,51 @@
+prototype(DIU.Teaser:Content.Teaser.Icons) < prototype(Neos.Neos:ContentComponent) {
+
+    renderer = DIU.Teaser:Component.Molecule.TeaserIcons {
+        items = Neos.Fusion:RawArray {
+            0 = Neos.Fusion:RawArray {
+                url = Neos.Neos:NodeUri {
+                    node = ${q(node).property('link1') ? q(node).property('link1') : q(site).find('[instanceof Neos.Neos:Document][specialPage=calendar]').get(0)}
+                }
+
+                iconLink = Neos.Fusion:ResourceUri {
+                    path = 'resource://DIU.Teaser/Public/Images/calendar.svg'
+                }
+
+                title = ${q(node).property('linktitle1')}
+            }
+            1 = Neos.Fusion:RawArray {
+                url = Neos.Neos:NodeUri {
+                    node = ${q(node).property('link2') ? q(node).property('link2') : q(site).find('[instanceof Neos.Neos:Document][specialPage=lexicon]').get(0)}
+                }
+
+                iconLink = Neos.Fusion:ResourceUri {
+                    path = 'resource://DIU.Teaser/Public/Images/lexicon.svg'
+                }
+
+                title = ${q(node).property('linktitle2')}
+            }
+            2 = Neos.Fusion:RawArray {
+                url = Neos.Neos:NodeUri {
+                    node = ${q(node).property('link3') ? q(node).property('link3') : q(site).find('[instanceof Neos.Neos:Document][specialPage=calculator]').get(0)}
+                }
+
+                iconLink = Neos.Fusion:ResourceUri {
+                    path = 'resource://DIU.Teaser/Public/Images/lexicon2.svg'
+                }
+
+                title = ${q(node).property('linktitle3')}
+            }
+            3 = Neos.Fusion:RawArray {
+                url = Neos.Neos:NodeUri {
+                    node = ${q(node).property('link4') ? q(node).property('link4') : q(site).find('[instanceof Neos.Neos:Document][specialPage=whitepaper]').get(0)}
+                }
+
+                iconLink = Neos.Fusion:ResourceUri {
+                    path = 'resource://DIU.Teaser/Public/Images/book.svg'
+                }
+
+                title = ${q(node).property('linktitle4')}
+            }
+        }
+    }
+}

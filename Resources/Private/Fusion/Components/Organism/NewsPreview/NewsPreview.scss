@@ -1,0 +1,10 @@
+.organism-newsPreview h2,
+.organism-newsPreview .molecule-newsTeaser {
+    margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+    .organism-newsPreview .col-md-4 .molecule-newsTeaser {
+        max-width: 70%;
+    }
+}

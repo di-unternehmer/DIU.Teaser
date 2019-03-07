@@ -1,0 +1,49 @@
+prototype(DIU.Teaser:Content.Teaser.News.Medium) < prototype(Neos.Neos:ContentComponent) {
+    @context.newsNode = Neos.Fusion:Case {
+
+        newsSelected {
+            selectedNews = ${q(node).property('news')}
+
+            condition = ${q(this.selectedNews).is('[instanceof DIU.Teaser:News]')}
+            renderer = ${q(this.selectedNews)}
+            @position = 'start'
+        }
+
+        fallback {
+            condition = true
+            renderer = ${q(site).find('[instanceof DIU.Teaser:News]').sort('_creationDateTime',String.toUpperCase('ASC')).get(0)}
+            @position = 'end'
+        }
+
+    }
+    renderer = DIU.Teaser:Component.Molecule.NewsTeaser {
+
+        classNames = 'small'
+
+        imageUrlDefault = Neos.Neos:ImageUri {
+            asset = ${q(newsNode).property('teaserDefaultImage') ? q(newsNode).property('teaserDefaultImage') : q(newsNode).property('image')}
+            maximumWidth = 400
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlSmall = Neos.Neos:ImageUri {
+            asset = ${q(newsNode).property('teaserSmallImage') ? q(newsNode).property('teaserSmallImage') : q(newsNode).property('image')}
+            maximumWidth = 400
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlMedium = null
+
+        imageUrlLarge = null
+
+        publicationDate = ${q(newsNode).property('publishingDate')}
+        title = ${q(newsNode).property('title')}
+        description = ${q(node).property('showIntroduction') ? String.crop(q(newsNode).property('introduction'), 300, '...') : false}
+        link = Neos.Neos:NodeUri {
+            node = ${NewsNode}
+        }
+        link.@if.hideLinkInBackend = ${documentNode.context.inBackend == false}
+    }
+}

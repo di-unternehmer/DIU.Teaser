@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="DIU.Teaser" source-language="en" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label">
+                <source>Events/Lexicon/... Teaser</source>
+            </trans-unit>
+            <trans-unit id="groups.link1">
+                <source>Eventcalendar</source>
+            </trans-unit>
+            <trans-unit id="properties.linktitle1">
+                <source>Link Title</source>
+            </trans-unit>
+            <trans-unit id="properties.link1">
+                <source>Link to Event Calendar</source>
+            </trans-unit>
+            <trans-unit id="groups.link2">
+                <source>Lexicon</source>
+            </trans-unit>
+            <trans-unit id="properties.linktitle2">
+                <source>Link Title</source>
+            </trans-unit>
+            <trans-unit id="properties.link2">
+                <source>Link to Lexicon</source>
+            </trans-unit>
+            <trans-unit id="groups.link3">
+                <source>Calculator</source>
+            </trans-unit>
+            <trans-unit id="properties.linktitle3">
+                <source>Link Title</source>
+            </trans-unit>
+            <trans-unit id="properties.link3">
+                <source>Link to Calculator</source>
+            </trans-unit>
+            <trans-unit id="groups.link4">
+                <source>WhitePaper</source>
+            </trans-unit>
+            <trans-unit id="properties.linktitle4">
+                <source>Link Title</source>
+            </trans-unit>
+            <trans-unit id="properties.link4">
+                <source>Link to WhitePaper</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

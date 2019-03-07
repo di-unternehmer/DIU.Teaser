@@ -1,0 +1,34 @@
+prototype(DIU.Teaser:Component.Atom.Headline.H3) < prototype(Neos.Fusion:Component) {
+
+	@styleguide {
+
+		#
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Atom Fixed Headline 3'
+
+		#
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'Fixed Headline 3 Prototype.'
+		@propTypes {
+			content = ${PropTypes.string.isRequired}
+			classNames = ${PropTypes.string}
+		}
+		props {
+			content = 'Atom SEO-Potenziale für KMU in Deutschland'
+			classNames = ''
+		}
+	}
+
+	content = ''
+	classNames = ''
+
+	renderer = afx`
+		<h3 class={'atom-headline-h3 ' + props.classNames}>
+			{props.content}
+		</h3>
+	`
+}

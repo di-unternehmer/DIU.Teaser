@@ -1,0 +1,15 @@
+Neos:
+  Neos:
+    userInterface:
+      translation:
+        autoInclude:
+          'DIU.Teaser': ['*','NodeTypes/*']
+    nodeTypes:
+      groups:
+        teaser:
+          position: 53
+          label: Teaser
+          collapsed: false
+    fusion:
+      autoInclude:
+        'DIU.Teaser': true

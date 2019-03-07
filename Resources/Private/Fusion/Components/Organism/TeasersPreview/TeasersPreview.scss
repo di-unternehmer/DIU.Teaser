@@ -1,0 +1,26 @@
+.organism-teaserPreview h2,
+.organism-teaserPreview .molecule-teaser {
+    margin-bottom: 25px;
+}
+
+.organism-teaserPreview.atom-section .molecule-teaser svg {
+    height: 400px;
+    width: 1140px;
+}
+
+.organism-teaserPreview.atom-section .molecule-teaser.image-left svg,
+.organism-teaserPreview.atom-section .molecule-teaser.image-right svg {
+    width: 552px;
+    height: 292px;
+}
+
+.organism-teaserPreview.atom-section .molecule-teaser.small svg {
+    width: 350px;
+    height: 194px;
+}
+
+@media only screen and (max-width: 767px) {
+    .organism-teaserPreview .col-md-4 .molecule-teaser {
+        max-width: 70%;
+    }
+}

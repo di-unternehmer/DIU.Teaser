@@ -1,0 +1,20 @@
+.molecule-linkTeaser
+ {
+    max-width: 298px;
+    background-color: #fff;
+    padding: 15px;
+}
+
+.molecule-linkTeaser .title{
+    font-size: 17px;
+    font-weight: bold;
+    color: #00193c;
+}
+
+.molecule-linkTeaser a{
+    color: #00a3de;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    line-height: 26px;
+}

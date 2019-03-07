@@ -1,0 +1,156 @@
+/* Start Of Default Styling */
+.molecule-teaser {
+    background-color: #ffffff;
+    color: #47535b;
+    display: block;
+    max-width: 720px;
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .molecule-teaser {
+        max-width: 940px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .molecule-teaser {
+        max-width: 1140px;
+    }
+}
+
+.molecule-teaser.small {
+    max-width: 410px;
+    font-size: 16px;
+}
+
+.molecule-teaser.no-description {
+    max-width: 360px;
+}
+
+.molecule-teaser:hover,
+.molecule-teaser {
+    text-decoration: none;
+    outline: 0;
+}
+
+.molecule-teaser .pseudo-link {
+    color: #00a3de;
+}
+
+.molecule-teaser:hover .pseudo-link,
+.molecule-teaser:hover .headline {
+    text-decoration: underline;
+}
+
+.molecule-teaser picture:before {
+    background-color: #6c757c;
+    content: '';
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: .1;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+
+.molecule-teaser:hover picture:before {
+    opacity: 0;
+}
+
+.molecule-teaser img {
+    width: 100%;
+    height: auto;
+    vertical-align: middle;
+    border: 0;
+}
+
+.molecule-teaser .body {
+    padding: 30px;
+}
+
+.molecule-teaser .category {
+    color: #47535b;
+    line-height: 1;
+    margin-bottom: 6px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.molecule-teaser:hover p,
+.molecule-teaser p
+{
+    color: #47535b;
+}
+
+.molecule-teaser .headline {
+    font-size: 20px;
+    margin: 0 0 10px 0;
+}
+
+.molecule-teaser .description {
+    background: #fff;
+}
+
+.teaser__notInlineEditable {
+    position: relative;
+}
+
+.teaser__notInlineEditableOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    background-size: 100%;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(50, 50, 50, .1)), color-stop(rgba(50, 50, 50, .2)), to(rgba(50, 50, 50, .1)));
+    background-image: linear-gradient(to bottom, rgba(50, 50, 50, .1), rgba(50, 50, 50, .2), rgba(50, 50, 50, .1));
+}
+
+/* ! END Of Default Styling */
+
+
+/* Start Of Grid Positioning Styling */
+.molecule-teaser.image-left,
+.molecule-teaser.image-right {
+    max-width: 576px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 992px) {
+    .molecule-teaser.image-left,
+    .molecule-teaser.image-right {
+        max-width: 1140px;
+    }
+
+    .molecule-teaser.image-left picture,
+    .molecule-teaser.image-left svg {
+        float: left;
+    }
+
+    .molecule-teaser.image-left .body {
+        float: left;
+    }
+
+    .molecule-teaser.image-right picture,
+    .molecule-teaser.image-right svg {
+        float: right;
+    }
+
+    .molecule-teaser.image-left .body,
+    .molecule-teaser.image-right .body,
+    .molecule-teaser.image-left picture,
+    .molecule-teaser.image-left svg,
+    .molecule-teaser.image-right picture,
+    .molecule-teaser.image-right svg {
+        width: 50%;
+    }
+
+    .molecule-teaser:after {
+        clear: both;
+        content: "";
+        display: table;
+    }
+
+}
+/* ! END Of Grid Positioning Styling */

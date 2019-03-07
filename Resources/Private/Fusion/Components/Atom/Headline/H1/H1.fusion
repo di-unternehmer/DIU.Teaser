@@ -1,0 +1,34 @@
+prototype(DIU.Teaser:Component.Atom.Headline.H1) < prototype(Neos.Fusion:Component) {
+
+	@styleguide {
+
+		#
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Atom Fixed Headline 1'
+
+		#
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'Fixed Headline 1 Atom.'
+		@propTypes {
+			content = ${PropTypes.string.isRequired}
+			classNames = ${PropTypes.string}
+		}
+		props {
+			content = 'Klassisches Führen gilt als out – wie viel bringt Max Weber?'
+			classNames = ''
+		}
+	}
+
+	content = ''
+	classNames = ''
+
+	renderer = afx`
+		<h1 property="headline" class={'atom-headline-h1 ' + props.classNames}>
+			{props.content}
+		</h1>
+	`
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file original="" product-name="DIU.Teaser" source-language="en" target-language="de" datatype="plaintext">
+        <body>
+            <trans-unit id="ui.label">
+                <source>Article Teaser (Medium 50-50)</source>
+                <target>Artikel Teaser (Medium 50-50)</target>
+            </trans-unit>
+            <trans-unit id="properties.layout">
+                <source>Layout</source>
+                <target>Layout</target>
+            </trans-unit>
+            <trans-unit id="properties.layout.selectBoxEditor.values.right">
+                <source>Image right</source>
+                <target>Bild rechts</target>
+            </trans-unit>
+            <trans-unit id="properties.layout.selectBoxEditor.values.left">
+                <source>Image left</source>
+                <target>Bild links</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

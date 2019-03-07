@@ -1,0 +1,74 @@
+/* Start Of Default Styling */
+.molecule-newsTeaserSmall {
+    background-color: #ffffff;
+    color: #47535b;
+    display: block;
+    border-radius: 6px;
+}
+
+.molecule-newsTeaserSmall h2 {
+    margin: 26px 0 10px 0;
+}
+
+.molecule-newsTeaserSmall:hover,
+.molecule-newsTeaserSmall {
+    text-decoration: none;
+    outline: 0;
+}
+
+.molecule-newsTeaserSmall .pseudo-link {
+    color: #00a3de;
+    margin-top: 14px;
+}
+
+.molecule-newsTeaserSmall:hover .pseudo-link,
+.molecule-newsTeaserSmall:hover .headline {
+    text-decoration: underline;
+}
+
+.molecule-newsTeaserSmall img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 0;
+    float: none;
+}
+
+.molecule-newsTeaserSmall:hover p,
+.molecule-newsTeaserSmall p
+{
+    color: #47535b;
+    -webkit-font-smoothing: antialiased;
+}
+
+.molecule-newsTeaserSmall .headline {
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.molecule-newsTeaserSmall .description {
+    background: transparent;
+    padding: 0 30px 100px;
+}
+
+/* ! END Of Default Styling */
+
+@media only screen and (max-width: 767px) {
+    .molecule-newsTeaserSmall img,
+    .molecule-newsTeaserSmall picture {
+        display: block;
+        width: 100%;
+        height: auto;
+        padding: 0;
+    }
+
+    .molecule-newsTeaserSmall .body {
+        padding: 0 17px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .molecule-newsTeaserSmall {
+        max-width: 360px;
+    }
+}

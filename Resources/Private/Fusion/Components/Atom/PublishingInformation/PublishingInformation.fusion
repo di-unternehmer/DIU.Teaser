@@ -1,0 +1,52 @@
+prototype(DIU.Teaser:Component.Atom.PublishingInformation) < prototype(Neos.Fusion:Component) {
+
+    #
+    # Styleguide annotation
+    # if this annotation is present (even when empty)
+    # the prototype is rendered in the styleguide
+    #
+    @styleguide {
+
+        #
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Publishing Information'
+
+        #
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'Publishing Information Prototype, to have Date and city in Articles.'
+
+        @propTypes {
+            date = ${PropTypes.string.isRequired}
+            city = ${PropTypes.string.isRequired}
+            classNames = ${PropTypes.string}
+        }
+
+        #
+        # Fusion-props to override during the styleguide rendering
+        # Optional: By default empty.
+        #
+        props {
+            date = '31. Januar 2018'
+            city = 'Berlin'
+            classNames = ''
+        }
+    }
+
+    date = ''
+    city = ''
+    classNames = ''
+
+    #
+    # The code afx`...` is converted to the fusion code below at parse time.
+    # Attention: Currently there is no way to escape closing-backticks inside the Expression.
+    #
+    renderer = afx`
+        <p class={"atom-publishing-information " + props.classNames}>
+            {(props.city ? props.city + ', ' : '') + props.date}
+        </p>
+    `
+}

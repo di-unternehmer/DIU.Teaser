@@ -1,0 +1,30 @@
+{
+    "description": "",
+    "type": "neos-plugin",
+    "name": "diu/teaser",
+    "require": {
+        "neos/flow": "*",
+        "neos/fusion-afx": "*"
+    },
+    "suggest": {
+        "sitegeist/monocle": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "DIU\\Teaser\\": "Classes/"
+        }
+    },
+    "license": "GPL-3.0-or-later",
+    "authors": [
+        {
+            "name": "Pascal Folleher",
+            "email": "pascal.folleher@di-unternehmer.com",
+            "role": "Developer"
+        }
+    ],
+    "extra": {
+        "neos": {
+            "package-key": "DIU.Teaser"
+        }
+    }
+}

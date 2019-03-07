@@ -1,0 +1,110 @@
+prototype(DIU.Teaser:Content.Teaser.Article.Main) < prototype(Neos.Neos:ContentComponent) {
+
+    @context.articleNode = Neos.Fusion:Case {
+
+        articleSelected {
+            selectedArticle = ${q(node).property('article')}
+
+            condition = ${q(this.selectedArticle).is('[instanceof DIU.Teaser:Article]')}
+            renderer = ${q(this.selectedArticle).get(0)}
+            @position = 'start'
+        }
+
+        selectByIndex {
+            selectedArticle = ${q(node).property('article')}
+            index = ${q(node).property('index') ? q(node).property('index') : 0}
+            sortBy = ${q(node).property('sortBy') ? q(node).property('sortBy') : '_creationDateTime'}
+            sortDirection = ${q(node).property('sortDirection') ? q(node).property('sortDirection') : 'DESC'}
+
+            condition = ${q(node).property('index') > 0 && q(this.selectedArticle).is('[instanceof DIU.Teaser:Article]') == false}
+            renderer = ${q(site).find('[instanceof DIU.Teaser:Article]').sort(this.sortBy,String.toUpperCase(this.sortDirection)).get(this.index)}
+            @position = '100'
+        }
+
+        getArticleByTopic {
+            selectedTopic = ${q(node).property('topic')}
+            amount = ${Array.length(q(this.selectedTopic).find('[instanceof DIU.Teaser:Article]').get())}
+            index = ${q(node).property('index') ? (String.toInteger(q(node).property('index')) >= this.amount ? this.amount - 1 : q(node).property('index') ) : 0}
+            sortBy = ${q(node).property('sortBy') ? q(node).property('sortBy') : '_creationDateTime'}
+            sortDirection = ${q(node).property('sortDirection') ? q(node).property('sortDirection') : 'DESC'}
+
+            condition = ${ this.selectedTopic && this.amount > 0}
+            renderer = ${q(this.selectedTopic).find('[instanceof DIU.Teaser:Article]').sort(this.sortBy,String.toUpperCase(this.sortDirection)).get(this.index)}
+
+        }
+
+        fallback {
+            index = ${q(node).property('index') ? q(node).property('index') : 0}
+            sortBy = ${q(node).property('sortBy') ? q(node).property('sortBy') : '_creationDateTime'}
+            sortDirection = ${q(node).property('sortDirection') ? q(node).property('sortDirection') : 'DESC'}
+
+            condition = true
+            renderer = ${q(site).find('[instanceof DIU.Teaser:Article]').sort(this.sortBy,String.toUpperCase(this.sortDirection)).get(this.index)}
+            @position = 'end'
+        }
+
+    }
+
+
+    renderer = DIU.Teaser:Component.Molecule.Teaser {
+        inBackend = ${documentNode.context.inBackend}
+
+        imageUrlDefault = Neos.Neos:ImageUri {
+            asset = ${q(articleNode).property('teaserBigImage') ? q(articleNode).property('teaserBigImage') : q(articleNode).property('image')}
+            width = 1140
+            height = 400
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlSmall = Neos.Neos:ImageUri {
+            asset = ${q(articleNode).property('teaserBigImage') ? q(articleNode).property('teaserBigImage') : q(articleNode).property('image')}
+            width = 720
+            height = 253
+            maximumWidth = 720
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlMedium = Neos.Neos:ImageUri {
+            asset = ${q(articleNode).property('teaserBigImage') ? q(articleNode).property('teaserBigImage') : q(articleNode).property('image')}
+            width = 940
+            height = 330
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        imageUrlLarge = Neos.Neos:ImageUri {
+            asset = ${q(articleNode).property('teaserBigImage') ? q(articleNode).property('teaserBigImage') : q(articleNode).property('image')}
+            width = 1140
+            height = 400
+            allowCropping = TRUE
+            allowUpScaling = FALSE
+        }
+
+        altImageText = ${q(articleNode).property('alternativeText') ? q(articleNode).property('alternativeText') : q(articleNode).property('title')}
+
+        category = ${q(articleNode).parent().property('title')}
+        category.@if.hasCategory = ${q(articleNode).parent().is('[instanceof Neos.Neos:Document]')}
+        title = ${q(articleNode).property('teaserBigTitle') ? q(articleNode).property('teaserBigTitle') : q(articleNode).property('title')}
+        description = ${String.crop(q(articleNode).property('teaserBigTitleIntroduction') ? q(articleNode).property('teaserBigTitleIntroduction') : q(articleNode).property('introduction'), 600, ' ...')}
+        link = Neos.Neos:NodeUri {
+            node = ${articleNode}
+        }
+        link.@if.hideLinkInBackend = ${documentNode.context.inBackend == false}
+    }
+
+    @cache {
+        mode = 'cached'
+
+        entryIdentifier {
+            node = ${node}
+        }
+
+        # 2) Flush cache on changes on the node itself and on a change of any article
+        entryTags {
+            node = ${'Node_' + node.identifier}
+            article = ${'NodeType_DIU.Teaser:Article'}
+        }
+    }
+}

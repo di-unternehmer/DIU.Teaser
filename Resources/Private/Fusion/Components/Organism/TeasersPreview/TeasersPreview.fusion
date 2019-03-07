@@ -1,0 +1,172 @@
+prototype(DIU.Teaser:Component.Organism.TeaserPreview) < prototype(Neos.Fusion:Component) {
+    #
+    # Styleguide annotation
+    # if this annotation is present (even when empty)
+    # the prototype is rendered in the styleguide
+    #
+    @styleguide {
+
+        #
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Article Teaser Preview'
+
+        #
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'Article Teaser Preview'
+
+        @propTypes {
+            title = ${PropTypes.string.isRequired}
+            addSectionTitle = ${PropTypes.boolean}
+            articles = ${PropTypes.array.isRequired}
+            addTopSpacing = ${PropTypes.boolean}
+            addBottomSpacing = ${PropTypes.boolean}
+            teaserPreview = ${PropTypes.Array.isrequired}
+        }
+
+        #
+        # Fusion-props to override during the styleguide rendering
+        # Optional: By default empty.
+        #
+        props {
+            title = 'Artikel Teaser Vorschau'
+            addSectionTitle = true
+            classNames = ''
+            addTopSpacing = false
+            addBottomSpacing = false
+            inBackend = true
+            teaserPreview = Neos.Fusion:RawArray {
+                teaserBigImageDefault = 'https://dummyimage.com/1140x400/000/fff'
+                teaserBigImageSmall = 'https://dummyimage.com/720x250/000/fff'
+                teaserBigImageMedium = 'https://dummyimage.com/940x330/000/fff'
+                teaserBigImageLarge = 'https://dummyimage.com/1140x400/000/fff'
+                teaserBigCategory = 'Business Management'
+                teaserBigTitle = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg beeinflussen'
+                teaserBigIntroduction = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt, es herrschen flache Hierarchien. In vielen großen Unternehmen ist es dagegen umgekehrt: Hier berichtet der Abteilungsleiter an den Manager...'
+                teaserBigLink = '#'
+
+                teaserMediumImageDefault = 'https://dummyimage.com/576x302/000/fff'
+                teaserMediumImageSmall = ''
+                teaserMediumImageMedium = ''
+                teaserMediumImageLarge = ''
+                teaserMediumCategory = 'Business Management'
+                teaserMediumTitle = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg beeinflussen'
+                teaserMediumIntroduction = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt...'
+                teaserMediumLink = '#'
+
+                teaserMediumRightImageDefault = 'https://dummyimage.com/576x302/000/fff'
+                teaserMediumRightImageSmall = ''
+                teaserMediumRightImageMedium = ''
+                teaserMediumRightImageLarge = ''
+                teaserMediumRightCategory = 'Business Management'
+                teaserMediumRightTitle = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg beeinflussen'
+                teaserMediumRightIntroduction = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt...'
+                teaserMediumRightLink = '#'
+
+                teaserSmallImageDefault = 'https://dummyimage.com/410x220/000/fff'
+                teaserSmallImageSmall = ''
+                teaserSmallImageMedium = ''
+                teaserSmallImageLarge = ''
+                teaserSmallCategory = 'Business Management'
+                teaserSmallTitle = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg beeinflussen'
+                teaserSmallIntroduction = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt...'
+                teaserSmallLink = '#'
+
+                teaserSmallShortImageDefault = 'https://dummyimage.com/410x220/000/fff'
+                teaserSmallShortImageSmall = ''
+                teaserSmallShortImageMedium = ''
+                teaserSmallShortImageLarge = ''
+                teaserSmallShortCategory = 'Business Management'
+                teaserSmallShortTitle = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg beeinflussen'
+                teaserSmallShortIntroduction = null
+                teaserSmallShortLink = '#'
+            }
+        }
+    }
+
+    title = ''
+    addSectionTitle = false
+    classNames = ''
+    addTopSpacing = false
+    addBottomSpacing = false
+
+    teaserPreview = Neos.Fusion:RawArray {
+        teaserBigImageDefault = ''
+        teaserBigImageSmall = ''
+        teaserBigImageMedium = ''
+        teaserBigImageLarge = ''
+        teaserBigCategory = ''
+        teaserBigTitle = ''
+        teaserBigIntroduction = ''
+        teaserBigLink = ''
+
+        teaserMediumImageDefault = ''
+        teaserMediumImageSmall = ''
+        teaserMediumImageMedium = ''
+        teaserMediumImageLarge = ''
+        teaserMediumCategory = ''
+        teaserMediumTitle = ''
+        teaserMediumIntroduction = ''
+        teaserMediumLink = ''
+
+        teaserMediumRightImageDefault = ''
+        teaserMediumRightImageSmall = ''
+        teaserMediumRightImageMedium = ''
+        teaserMediumRightImageLarge = ''
+        teaserMediumRightCategory = ''
+        teaserMediumRightTitle = ''
+        teaserMediumRightIntroduction = ''
+        teaserMediumRightLink = ''
+
+        teaserSmallImageDefault = ''
+        teaserSmallImageSmall = ''
+        teaserSmallImageMedium = ''
+        teaserSmallImageLarge = ''
+        teaserSmallCategory = ''
+        teaserSmallTitle = ''
+        teaserSmallIntroduction = ''
+        teaserSmallLink = ''
+
+        teaserSmallShortImageDefault = ''
+        teaserSmallShortImageSmall = ''
+        teaserSmallShortImageMedium = ''
+        teaserSmallShortImageLarge = ''
+        teaserSmallShortCategory = ''
+        teaserSmallShortTitle = ''
+        teaserSmallShortIntroduction = null
+        teaserSmallShortLink = ''
+    }
+
+
+    inBackend = ${documentNode.context.inBackend}
+
+    #
+    # The code afx`...` is converted to the fusion code below at parse time.
+    # Attention: Currently there is no way to escape closing-backticks inside the Expression.
+    #
+    renderer = afx`
+        <section class={'organism-teaserPreview atom-section ' + props.classNames} data-component="Organism/TeaserPreview" @if.inBackend={props.inBackend} >
+            <div class="container">
+                <h2 class="title">{Translation.translate('article.teaser.preview',null,[],'NodeTypes/Article','DIU.Teaser')}</h2>
+
+                <DIU.Teaser:Component.Molecule.Teaser imageUrlDefault={props.teaserPreview.teaserBigImageDefault} imageUrlSmall={props.teaserPreview.teaserBigImageSmall} imageUrlMedium={props.teaserPreview.teaserBigImageMedium} imageUrlLarge={props.teaserPreview.teaserBigImageLarge} category={props.teaserPreview.teaserBigCategory} title={props.teaserPreview.teaserBigTitle} description={props.teaserPreview.teaserBigIntroduction} link={props.teaserPreview.teaserBigLink} />
+
+                <DIU.Teaser:Component.Molecule.Teaser classNames={'image-left'} imageUrlDefault={props.teaserPreview.teaserMediumImageDefault} imageUrlSmall={props.teaserPreview.teaserMediumImageSmall} imageUrlMedium={props.teaserPreview.teaserMediumImageMedium} imageUrlLarge={props.teaserPreview.teaserMediumImageLarge} category={props.teaserPreview.teaserMediumCategory} title={props.teaserPreview.teaserMediumTitle} description={props.teaserPreview.teaserMediumIntroduction} link={props.teaserPreview.teaserMediumLink} />
+
+                <DIU.Teaser:Component.Molecule.Teaser classNames={'image-right'} notInlineEditable={true} imageUrlDefault={props.teaserPreview.teaserMediumRightImageDefault} imageUrlSmall={props.teaserPreview.teaserMediumRightImageSmall} imageUrlMedium={props.teaserPreview.teaserMediumRightImageMedium} imageUrlLarge={props.teaserPreview.teaserMediumRightImageLarge} category={props.teaserPreview.teaserMediumRightCategory} title={props.teaserPreview.teaserMediumRightTitle} description={props.teaserPreview.teaserMediumRightIntroduction} link={props.teaserPreview.teaserMediumRightLink} />
+
+                <div class={'justify-content-around row molecule-grid molecule-grid-column-two ' + (props.addTopSpacing ? ' spacing-top' : '') + (props.addBottomSpacing ? ' spacing-bottom' : '')}>
+                    <div class="col-md-4">
+                        <DIU.Teaser:Component.Molecule.Teaser classNames={'small'} imageUrlDefault={props.teaserPreview.teaserSmallImageDefault} imageUrlSmall={props.teaserPreview.teaserSmallImageSmall} imageUrlMedium={props.teaserPreview.teaserSmallImageMedium} imageUrlLarge={props.teaserPreview.teaserSmallImageLarge} category={props.teaserPreview.teaserSmallCategory} title={props.teaserPreview.teaserSmallTitle} description={props.teaserPreview.teaserSmallIntroduction} link={props.teaserPreview.teaserSmallLink} />
+                    </div>
+                    <div class="col-md-4">
+                        <DIU.Teaser:Component.Molecule.Teaser classNames={'small no-description'} notInlineEditable={true} imageUrlDefault={props.teaserPreview.teaserSmallShortImageDefault} imageUrlSmall={props.teaserPreview.teaserSmallShortImageSmall} imageUrlMedium={props.teaserPreview.teaserSmallShortImageMedium} imageUrlLarge={props.teaserPreview.teaserSmallShortImageLarge} category={props.teaserPreview.teaserSmallShortCategory} title={props.teaserPreview.teaserSmallShortTitle} description={null} link={props.teaserPreview.teaserSmallShortLink} />
+                    </div>
+                </div>
+            </div>
+        </section>
+    `
+}

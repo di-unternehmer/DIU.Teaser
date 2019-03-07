@@ -1,0 +1,55 @@
+prototype(DIU.Teaser:Component.Molecule.LinksTeaser) < prototype(Neos.Fusion:Component) {
+
+    @styleguide {
+        #
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Molecule Links Teaser'
+        description = 'Links Teaser Molecule.'
+
+        @propTypes {
+            items = ${PropTypes.Array.isRequired}
+            title = ${PropTypes.string.isRequired}
+            classNames = ${PropTypes.string}
+        }
+
+        #
+        # A description of the component
+        # Optional: By default empty.
+        #
+        props {
+            items = Neos.Fusion:RawArray {
+                0 = ${{href: '#', title: 'Datenschutzhüllen'}}
+                1 = ${{href: '#', title: 'Datenschutzberatung'}}
+                2 = ${{href: '#', title: 'Datenschutzbeauftragte, externe'}}
+                3 = ${{href: '#', title: 'Dokumentationen für den Datenschutz'}}
+                4 = ${{href: '#', title: 'Datensicherheitsmedien für den Datenschutz'}}
+                5 = ${{href: '#', title: 'Schulungen und Seminare für den Datenschutz'}}
+                6 = ${{href: '#', title: 'Datensicherheitssoftware für den Datenschutz'}}
+            }
+            title = 'Beliebte Firmen'
+            classNames = ''
+        }
+    }
+
+    items = ${[]}
+    title = ''
+    classNames = ''
+
+        renderer = afx`
+            <div class={'molecule-linkTeaser ' + props.classNames}>
+                <p class="title">{Translation.translate('links.title',null,[],'NodeTypes/Content/LinkTeaser','DIU.Teaser')}</p>
+                <Neos.Fusion:Collection collection={props.items} itemName='item' @children='itemRenderer' iterationName='itemIterator'>
+                    <Neos.Fusion:Tag
+                        tagName={item.href ? 'a' : 'span'}
+                        attributes.title={item.title}
+                        attributes.href={item.href ? item.href : false}
+                        attributes.target={item.href ? "_blank" : false}
+                    >
+                        {item.title}
+                    </Neos.Fusion:Tag>
+                </Neos.Fusion:Collection>
+            </div>
+        `
+    }

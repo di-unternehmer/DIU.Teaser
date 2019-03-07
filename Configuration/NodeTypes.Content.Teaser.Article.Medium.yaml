@@ -1,0 +1,22 @@
+'DIU.Teaser:Content.Teaser.Article.Medium':
+  superTypes:
+    'DIU.Teaser:Content.Teaser.Article.Mixins': true
+  ui:
+    label: i18n
+    position: 200
+  properties:
+    layout:
+      type: string
+      defaultValue: 'left'
+      ui:
+        label: i18n
+        reloadIfChanged: true
+        inspector:
+          group: 'general'
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            values:
+              left:
+                label: i18n
+              right:
+                label: i18n

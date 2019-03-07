@@ -1,0 +1,124 @@
+prototype(DIU.Teaser:Component.Organism.NewsPreview) < prototype(Neos.Fusion:Component) {
+    #
+    # Styleguide annotation
+    # if this annotation is present (even when empty)
+    # the prototype is rendered in the styleguide
+    #
+    @styleguide {
+
+        #
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'News Preview'
+
+        #
+        # A description of the component
+        # Optional: By default empty.
+        #
+        description = 'News Preview'
+
+        @propTypes {
+            title = ${PropTypes.string.isRequired}
+            classNames = ${PropTypes.string}
+            addTopSpacing = ${PropTypes.boolean}
+            addBottomSpacing = ${PropTypes.boolean}
+
+            city = ${PropTypes.string.isRequired}
+            publicationDate = ${PropTypes.string.isRequired}
+            teaserLink = ${PropTypes.string.isRequired}
+
+            teaserMediumImageDefault = ${PropTypes.string.isRequired}
+            teaserMediumImageSmall = ${PropTypes.string}
+            teaserMediumImageMedium = ${PropTypes.string}
+            teaserMediumImageLarge = ${PropTypes.string}
+
+            teaserMediumTitle = ${PropTypes.string.isRequired}
+            teaserMediumIntroduction = ${PropTypes.string.isRequired}
+
+            teaserSmallImageDefault = ${PropTypes.string.isRequired}
+            teaserSmallImageSmall = ${PropTypes.string}
+            teaserSmallImageMedium = ${PropTypes.string}
+            teaserSmallImageLarge = ${PropTypes.string}
+            teaserSmallTitle = ${PropTypes.string.isRequired}
+            teaserSmallIntroduction = ${PropTypes.string.isRequired}
+        }
+
+        #
+        # Fusion-props to override during the styleguide rendering
+        # Optional: By default empty.
+        #
+        props {
+            title = 'Artikel Teaser Vorschau'
+            classNames = ''
+            addTopSpacing = false
+            addBottomSpacing = false
+            inBackend = true
+            publicationDate = '18. Mai 2018'
+            city = 'Hamburg'
+
+            teaserMediumImageDefault = 'https://dummyimage.com/1140x400/000/fff'
+            teaserMediumImageSmall = 'https://dummyimage.com/720x250/000/fff'
+            teaserMediumImageMedium = 'https://dummyimage.com/940x330/000/fff'
+            teaserMediumImageLarge = 'https://dummyimage.com/1140x400/000/fff'
+
+            teaserMediumTitle = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg beeinflussen'
+            teaserMediumIntroduction = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt, es herrschen flache Hierarchien. In vielen großen Unternehmen ist es dagegen umgekehrt: Hier berichtet der Abteilungsleiter an den Manager...'
+            teaserMediumLink = '#'
+
+
+
+            teaserSmallImageDefault = 'https://dummyimage.com/410x220/000/fff'
+            teaserSmallImageSmall = ''
+            teaserSmallImageMedium = ''
+            teaserSmallImageLarge = ''
+            teaserSmallTitle = 'Flach oder steil? Wie Hierarchien den Unternehmenserfolg'
+            teaserSmallIntroduction = 'Start-ups machen es vor: Weniger Führungsebenen, einfache Strukturen, Mitarbeiter arbeiten selbstständig, Arbeitszeit und -ort werden flexibler – kurz gesagt...'
+        }
+    }
+
+    title = ''
+
+    classNames = ''
+    addTopSpacing = false
+    addBottomSpacing = false
+    inBackend = ${documentNode.context.inBackend}
+
+    city = ''
+    publicationDate = ''
+    teaserLink = ''
+
+    teaserMediumImageDefault = ''
+    teaserMediumImageSmall = ''
+    teaserMediumImageMedium = ''
+    teaserMediumImageLarge = ''
+    teaserMediumTitle = ''
+    teaserMediumIntroduction = ''
+
+    teaserSmallImageDefault = ''
+    teaserSmallImageSmall = ''
+    teaserSmallImageMedium = ''
+    teaserSmallImageLarge = ''
+    teaserSmallTitle = ''
+    teaserSmallIntroduction = ''
+
+
+
+    #
+    # The code afx`...` is converted to the fusion code below at parse time.
+    # Attention: Currently there is no way to escape closing-backticks inside the Expression.
+    #
+    renderer = afx`
+        <section class={'organism-newsPreview atom-section ' + props.classNames} data-component="Organism/NewsPreview" @if.inBackend={props.inBackend} >
+            <div class="container">
+                <h2 class="title">{Translation.translate('news.teaser.preview',null,[],'NodeTypes/News','DIU.Teaser')}</h2>
+
+                <DIU.Teaser:Component.Molecule.NewsTeaser city={props.city} imageUrlDefault={props.teaserMediumImageDefault} imageUrlSmall={props.teaserMediumImageSmall} imageUrlMedium={props.teaserMediumImageMedium} imageUrlLarge={props.teaserMediumImageLarge} publicationDate={props.publicationDate} title={props.teaserMediumTitle} description={props.teaserMediumIntroduction} link={props.teaserLink} />
+
+                <div class={'justify-content-around row ' + (props.addTopSpacing ? ' spacing-top' : '') + (props.addBottomSpacing ? ' spacing-bottom' : '')}>
+                    <DIU.Teaser:Component.Molecule.NewsTeaserSmall classNames={'small'} imageUrlDefault={props.teaserSmallImageDefault} imageUrlSmall={props.teaserSmallImageSmall} imageUrlMedium={props.teaserSmallImageMedium} imageUrlLarge={props.teaserSmallImageLarge} publicationDate={props.teaserSmallpublicationDate} title={props.teaserSmallTitle} description={props.teaserSmallIntroduction} link={props.teaserLink} />
+                </div>
+            </div>
+        </section>
+    `
+}

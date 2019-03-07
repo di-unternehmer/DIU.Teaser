@@ -1,0 +1,50 @@
+prototype(DIU.Teaser:Component.Molecule.TeaserIcons) < prototype(Neos.Fusion:Component) {
+
+    @styleguide {
+        #
+        # The title of the component
+        # Optional:  by default the component name is splitted and reversed
+        #
+        title = 'Molecule Teaser Icons'
+        description = 'Teaser Icons Molecule.'
+
+        @propTypes {
+            items = ${PropTypes.Array.isRequired}
+            classNames = ${PropTypes.string}
+        }
+
+        #
+        # A description of the component
+        # Optional: By default empty.
+        #
+        props {
+            items = Neos.Fusion:RawArray {
+                0 = ${{url: '#', iconLink: '', title: 'Messekalender'}}
+                1 = ${{url: '#', iconLink: '', title: 'Lexikon'}}
+                2 = ${{url: '#', iconLink: '', title: 'Firmenwagen & Gewerbesteuerrechner'}}
+                3 = ${{url: '#', iconLink: '', title: 'WhitePaper'}}
+            }
+            classNames = ''
+        }
+    }
+
+    items = ${[]}
+    classNames = ''
+
+        renderer = afx`
+            <div class={'molecule-teaserIcons ' + props.classNames}>
+                <ul>
+                    <Neos.Fusion:Collection collection={props.items} itemName='item' @children='itemRenderer' iterationName='itemIterator'>
+                        <li>
+                            <a href={item.url} target="_blank" title={item.title}>
+                                <div class="content">
+                                    <DIU.Teaser:Component.Atom.Icon.Default iconLink={item.iconLink} title={item.title} />
+                                    <div class="text">{item.title}</div>
+                                </div>
+                            </a>
+                        </li>
+                    </Neos.Fusion:Collection>
+                </ul>
+            </div>
+        `
+    }
